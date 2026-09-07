@@ -1,0 +1,36 @@
+# Render Blueprint for the backend. Import this repo at https://dashboard.render.com/blueprints
+# and Render creates the service + disk below automatically.
+#
+# NOTE: SQLite needs a persistent disk, which Render only supports on paid
+# instance plans (their free web-service tier has an ephemeral filesystem —
+# the database would be wiped on every restart/redeploy). "starter" is their
+# cheapest plan that supports attaching a disk; check render.com/pricing for
+# current cost before deploying.
+services:
+  - type: web
+    name: fireflies-backend
+    runtime: python
+    plan: starter
+    rootDir: backend
+    buildCommand: pip install -r requirements.txt
+    startCommand: bash scripts/start.sh
+    healthCheckPath: /api/health
+    envVars:
+      - key: PYTHON_VERSION
+        value: 3.12.7
+      - key: DATABASE_URL
+        value: sqlite:////var/data/fireflies.db
+      - key: ENVIRONMENT
+        value: production
+      # Set manually in the Render dashboard after the frontend is deployed
+      # (its own Vercel URL) — never committed here.
+      - key: CORS_ORIGINS
+        sync: false
+      # Optional: only needed to enable real Claude-generated summaries.
+      # Leave unset to use the built-in heuristic generator.
+      - key: ANTHROPIC_API_KEY
+        sync: false
+    disk:
+      name: fireflies-data
+      mountPath: /var/data
+      sizeGB: 1
