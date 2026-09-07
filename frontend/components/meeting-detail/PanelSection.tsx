@@ -12,10 +12,10 @@ interface PanelSectionProps {
  * stay in sync instead of three components each hand-rolling the same look. */
 export function PanelSection({ icon: Icon, title, action, children }: PanelSectionProps) {
   return (
-    <section className="rounded-xl border border-gray-200 bg-white p-5 shadow-sm">
+    <section className="rounded-xl border border-gray-200 bg-white p-5 shadow-sm dark:border-gray-800 dark:bg-gray-900">
       <div className="flex items-center justify-between gap-3">
-        <h2 className="flex items-center gap-2.5 text-sm font-semibold text-gray-900">
-          <span className="flex h-7 w-7 shrink-0 items-center justify-center rounded-lg bg-indigo-50 text-indigo-600">
+        <h2 className="flex items-center gap-2.5 text-sm font-semibold text-gray-900 dark:text-gray-100">
+          <span className="flex h-7 w-7 shrink-0 items-center justify-center rounded-lg bg-indigo-50 text-indigo-600 dark:bg-indigo-500/10 dark:text-indigo-400">
             <Icon size={15} />
           </span>
           {title}

@@ -45,8 +45,8 @@ export function FilterControls({
         onClick={() => setOpen((prev) => !prev)}
         className={`control-focus flex items-center gap-2 rounded-lg border px-3 py-2 text-sm font-medium transition-colors ${
           activeCount > 0
-            ? "border-indigo-200 bg-indigo-50 text-indigo-700"
-            : "border-gray-200 bg-white text-gray-700 hover:border-gray-300 hover:bg-gray-50"
+            ? "border-indigo-200 bg-indigo-50 text-indigo-700 dark:border-indigo-500/30 dark:bg-indigo-500/10 dark:text-indigo-400"
+            : "border-gray-200 bg-white text-gray-700 hover:border-gray-300 hover:bg-gray-50 dark:border-gray-700 dark:bg-gray-900 dark:text-gray-300 dark:hover:border-gray-600 dark:hover:bg-gray-800"
         }`}
       >
         <SlidersHorizontal size={15} />
@@ -61,10 +61,10 @@ export function FilterControls({
       {open && (
         <div
           style={{ animation: "modal-in 120ms ease-out" }}
-          className="absolute left-0 z-20 mt-2 w-72 max-w-[calc(100vw-2rem)] rounded-xl border border-gray-200 bg-white p-4 shadow-lg"
+          className="absolute left-0 z-20 mt-2 w-72 max-w-[calc(100vw-2rem)] rounded-xl border border-gray-200 bg-white p-4 shadow-lg dark:border-gray-700 dark:bg-gray-900"
         >
           <div className="flex flex-col gap-3">
-            <label className="flex flex-col gap-1 text-xs font-medium text-gray-600">
+            <label className="flex flex-col gap-1 text-xs font-medium text-gray-600 dark:text-gray-400">
               Participant
               <Select
                 value={participantFilter}
@@ -79,13 +79,13 @@ export function FilterControls({
               </Select>
             </label>
 
-            <label className="flex flex-col gap-1 text-xs font-medium text-gray-600">
+            <label className="flex flex-col gap-1 text-xs font-medium text-gray-600 dark:text-gray-400">
               Date
               <input
                 type="date"
                 value={dateFilter}
                 onChange={(event) => onDateFilterChange(event.target.value)}
-                className="field-focus rounded-lg border border-gray-200 px-2.5 py-2 text-sm text-gray-900"
+                className="field-focus rounded-lg border border-gray-200 px-2.5 py-2 text-sm text-gray-900 dark:border-gray-700 dark:bg-gray-900 dark:text-gray-100 dark:[color-scheme:dark]"
               />
             </label>
 
@@ -93,7 +93,7 @@ export function FilterControls({
               <button
                 type="button"
                 onClick={onClear}
-                className="control-focus self-start rounded text-xs font-medium text-indigo-600 hover:underline"
+                className="control-focus self-start rounded text-xs font-medium text-indigo-600 hover:underline dark:text-indigo-400"
               >
                 Clear filters
               </button>

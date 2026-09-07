@@ -3,6 +3,8 @@
 import Link from "next/link";
 import { useEffect, useState } from "react";
 
+import { ThemeToggle } from "@/components/ui/ThemeToggle";
+
 import { Logo } from "./Logo";
 
 const NAV_LINKS = [
@@ -45,6 +47,7 @@ export function MarketingNav() {
           ))}
         </div>
         <div className="ml-auto flex items-center gap-3">
+          <ThemeToggle variant="on-dark" />
           <a
             href="#contact"
             className="control-focus hidden rounded-lg border border-white/15 px-4 py-2 text-sm font-medium text-white transition-all duration-200 ease-out hover:-translate-y-0.5 hover:bg-white/10 sm:inline-block"

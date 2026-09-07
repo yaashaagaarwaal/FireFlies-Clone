@@ -57,7 +57,7 @@ export function Transcript({
   }, [activeSegmentId, currentMatchSegmentId]);
 
   if (segments.length === 0) {
-    return <p className="px-1 py-8 text-center text-sm text-gray-400">No transcript available for this meeting yet.</p>;
+    return <p className="px-1 py-8 text-center text-sm text-gray-400 dark:text-gray-500">No transcript available for this meeting yet.</p>;
   }
 
   return (

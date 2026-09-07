@@ -46,8 +46,9 @@ export function MeetingFormModal({ mode, meeting, participants, onClose, onSaved
   const fileInputRef = useRef<HTMLInputElement>(null);
 
   const isCreate = mode === "create";
-  const fieldLabelClass = "text-xs font-medium text-gray-600";
-  const fieldClass = "field-focus rounded-lg border border-gray-200 px-3 py-2 text-sm text-gray-900";
+  const fieldLabelClass = "text-xs font-medium text-gray-600 dark:text-gray-400";
+  const fieldClass =
+    "field-focus rounded-lg border border-gray-200 px-3 py-2 text-sm text-gray-900 dark:border-gray-700 dark:bg-gray-900 dark:text-gray-100 dark:[color-scheme:dark]";
 
   function toggleParticipant(id: number) {
     setSelectedParticipantIds((prev) =>
@@ -128,7 +129,7 @@ export function MeetingFormModal({ mode, meeting, participants, onClose, onSaved
             onChange={(event) => setTitle(event.target.value)}
             placeholder="e.g. Product Sync"
             autoFocus
-            className={`${fieldClass} placeholder:text-gray-400`}
+            className={`${fieldClass} placeholder:text-gray-400 dark:placeholder:text-gray-500`}
           />
         </label>
 
@@ -156,14 +157,14 @@ export function MeetingFormModal({ mode, meeting, participants, onClose, onSaved
 
         <div className="flex flex-col gap-1.5">
           <span className={fieldLabelClass}>Participants</span>
-          <div className="flex max-h-32 flex-col gap-0.5 overflow-y-auto rounded-lg border border-gray-200 p-2">
+          <div className="flex max-h-32 flex-col gap-0.5 overflow-y-auto rounded-lg border border-gray-200 p-2 dark:border-gray-700">
             {participants.length === 0 && (
-              <p className="px-1 py-1 text-xs text-gray-400">No participants yet.</p>
+              <p className="px-1 py-1 text-xs text-gray-400 dark:text-gray-500">No participants yet.</p>
             )}
             {participants.map((participant) => (
               <label
                 key={participant.id}
-                className="flex cursor-pointer items-center gap-2 rounded-md px-1.5 py-1.5 text-sm text-gray-700 transition-colors hover:bg-gray-50"
+                className="flex cursor-pointer items-center gap-2 rounded-md px-1.5 py-1.5 text-sm text-gray-700 transition-colors hover:bg-gray-50 dark:text-gray-300 dark:hover:bg-gray-800"
               >
                 <input
                   type="checkbox"
@@ -187,7 +188,7 @@ export function MeetingFormModal({ mode, meeting, participants, onClose, onSaved
                   onClick={() =>
                     showToast("Live meeting recording (bot join + real-time transcription) is coming soon", "info")
                   }
-                  className="control-focus flex items-center gap-1.5 rounded text-xs font-medium text-gray-500 transition-colors hover:text-gray-700 hover:underline"
+                  className="control-focus flex items-center gap-1.5 rounded text-xs font-medium text-gray-500 transition-colors hover:text-gray-700 hover:underline dark:text-gray-400 dark:hover:text-gray-200"
                 >
                   <Radio size={12} />
                   Join a live call
@@ -195,7 +196,7 @@ export function MeetingFormModal({ mode, meeting, participants, onClose, onSaved
                 <button
                   type="button"
                   onClick={() => fileInputRef.current?.click()}
-                  className="control-focus flex items-center gap-1.5 rounded text-xs font-medium text-indigo-600 transition-colors hover:text-indigo-700 hover:underline"
+                  className="control-focus flex items-center gap-1.5 rounded text-xs font-medium text-indigo-600 transition-colors hover:text-indigo-700 hover:underline dark:text-indigo-400 dark:hover:text-indigo-300"
                 >
                   <Upload size={12} />
                   Upload file
@@ -217,11 +218,11 @@ export function MeetingFormModal({ mode, meeting, participants, onClose, onSaved
               }}
               placeholder={"[00:00] Alex: Thanks for hopping on the call.\n[00:12] Priya: Happy to be here."}
               rows={7}
-              className={`${fieldClass} resize-y font-mono text-xs placeholder:text-gray-400`}
+              className={`${fieldClass} resize-y font-mono text-xs placeholder:text-gray-400 dark:placeholder:text-gray-500`}
             />
-            <p className="text-[11px] leading-relaxed text-gray-400">
+            <p className="text-[11px] leading-relaxed text-gray-400 dark:text-gray-500">
               {fileName ? `Loaded from ${fileName}. ` : ""}
-              One line per turn: <code className="rounded bg-gray-100 px-1 py-0.5">[MM:SS] Speaker: text</code>.
+              One line per turn: <code className="rounded bg-gray-100 px-1 py-0.5 dark:bg-gray-800">[MM:SS] Speaker: text</code>.
               WebVTT and JSON transcripts (.vtt / .json) are also auto-detected — paste directly or upload a
               .txt/.vtt/.json file. Speakers are matched to the participants above by name, or added
               automatically if new.
@@ -230,7 +231,7 @@ export function MeetingFormModal({ mode, meeting, participants, onClose, onSaved
         )}
 
         {error && (
-          <p className="flex items-start gap-2 rounded-lg border border-red-100 bg-red-50 px-3 py-2 text-xs text-red-700">
+          <p className="flex items-start gap-2 rounded-lg border border-red-100 bg-red-50 px-3 py-2 text-xs text-red-700 dark:border-red-500/20 dark:bg-red-500/10 dark:text-red-400">
             <AlertCircle size={14} className="mt-0.5 shrink-0" />
             {error}
           </p>
@@ -240,7 +241,7 @@ export function MeetingFormModal({ mode, meeting, participants, onClose, onSaved
           <button
             type="button"
             onClick={onClose}
-            className="control-focus rounded-lg border border-gray-200 px-4 py-2 text-sm font-medium text-gray-700 transition-colors hover:bg-gray-50"
+            className="control-focus rounded-lg border border-gray-200 px-4 py-2 text-sm font-medium text-gray-700 transition-colors hover:bg-gray-50 dark:border-gray-700 dark:text-gray-300 dark:hover:bg-gray-800"
           >
             Cancel
           </button>

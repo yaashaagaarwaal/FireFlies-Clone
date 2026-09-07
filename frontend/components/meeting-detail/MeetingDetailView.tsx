@@ -102,11 +102,11 @@ export function MeetingDetailView({ meetingId }: MeetingDetailViewProps) {
       <>
         <Topbar title="Meeting" />
         <main className="flex flex-1 flex-col items-center justify-center gap-3 px-6 text-center">
-          <div className="flex h-14 w-14 items-center justify-center rounded-full bg-gray-100 text-gray-400">
+          <div className="flex h-14 w-14 items-center justify-center rounded-full bg-gray-100 text-gray-400 dark:bg-gray-800 dark:text-gray-500">
             <VideoOff size={24} />
           </div>
-          <p className="text-lg font-semibold text-gray-900">Meeting not found</p>
-          <p className="-mt-1 max-w-sm text-sm text-gray-500">
+          <p className="text-lg font-semibold text-gray-900 dark:text-gray-100">Meeting not found</p>
+          <p className="-mt-1 max-w-sm text-sm text-gray-500 dark:text-gray-400">
             It may have been deleted, or the link is incorrect.
           </p>
           <button
@@ -179,7 +179,7 @@ export function MeetingDetailView({ meetingId }: MeetingDetailViewProps) {
           </div>
         </div>
 
-        <div className="h-1/2 border-t border-gray-200 md:h-auto md:border-t-0">
+        <div className="h-1/2 border-t border-gray-200 dark:border-gray-800 md:h-auto md:border-t-0">
           <TranscriptPanel
             segments={meeting.transcript_segments}
             currentTime={player.currentTime}

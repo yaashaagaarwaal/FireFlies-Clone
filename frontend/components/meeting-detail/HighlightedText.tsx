@@ -18,7 +18,7 @@ export function HighlightedText({ text, query }: HighlightedTextProps) {
     <>
       {parts.map((part, index) =>
         part.toLowerCase() === query.toLowerCase() ? (
-          <mark key={index} className="rounded bg-amber-200 px-0.5 text-inherit">
+          <mark key={index} className="rounded bg-amber-200 px-0.5 text-inherit dark:bg-amber-500/40">
             {part}
           </mark>
         ) : (

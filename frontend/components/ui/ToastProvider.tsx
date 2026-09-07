@@ -18,21 +18,21 @@ interface ToastContextValue {
 const ToastContext = createContext<ToastContextValue | null>(null);
 
 const VARIANT_STYLES: Record<ToastVariant, string> = {
-  success: "border-emerald-100 bg-white text-gray-800",
-  error: "border-red-100 bg-white text-gray-800",
-  info: "border-gray-200 bg-white text-gray-800",
+  success: "border-emerald-100 bg-white text-gray-800 dark:border-emerald-500/20 dark:bg-gray-900 dark:text-gray-200",
+  error: "border-red-100 bg-white text-gray-800 dark:border-red-500/20 dark:bg-gray-900 dark:text-gray-200",
+  info: "border-gray-200 bg-white text-gray-800 dark:border-gray-700 dark:bg-gray-900 dark:text-gray-200",
 };
 
 const VARIANT_ACCENT: Record<ToastVariant, string> = {
   success: "bg-emerald-500",
   error: "bg-red-500",
-  info: "bg-gray-300",
+  info: "bg-gray-300 dark:bg-gray-600",
 };
 
 const VARIANT_ICON_STYLES: Record<ToastVariant, string> = {
-  success: "bg-emerald-50 text-emerald-600",
-  error: "bg-red-50 text-red-500",
-  info: "bg-gray-100 text-gray-500",
+  success: "bg-emerald-50 text-emerald-600 dark:bg-emerald-500/10 dark:text-emerald-400",
+  error: "bg-red-50 text-red-500 dark:bg-red-500/10 dark:text-red-400",
+  info: "bg-gray-100 text-gray-500 dark:bg-gray-800 dark:text-gray-400",
 };
 
 const VARIANT_ICONS: Record<ToastVariant, typeof Info> = {
@@ -81,7 +81,7 @@ export function ToastProvider({ children }: { children: React.ReactNode }) {
                 type="button"
                 onClick={() => dismissToast(toast.id)}
                 aria-label="Dismiss notification"
-                className="control-focus absolute right-2 top-2 rounded p-1 text-gray-300 transition-colors hover:bg-gray-100 hover:text-gray-500"
+                className="control-focus absolute right-2 top-2 rounded p-1 text-gray-300 transition-colors hover:bg-gray-100 hover:text-gray-500 dark:text-gray-600 dark:hover:bg-gray-800 dark:hover:text-gray-300"
               >
                 <X size={13} />
               </button>

@@ -87,31 +87,31 @@ function Hero() {
 
       <Reveal delay={400} className="relative mx-auto mt-20 max-w-5xl px-6">
         <div className="relative">
-          <div className="overflow-hidden rounded-2xl border border-white/10 bg-white text-left shadow-[0_30px_80px_-20px_rgba(0,0,0,0.55)]">
-            <div className="flex items-center gap-3 border-b border-gray-100 px-5 py-3">
+          <div className="overflow-hidden rounded-2xl border border-white/10 bg-white text-left shadow-[0_30px_80px_-20px_rgba(0,0,0,0.55)] dark:bg-gray-900">
+            <div className="flex items-center gap-3 border-b border-gray-100 px-5 py-3 dark:border-gray-800">
               <div className="flex gap-1.5">
                 <span className="h-2.5 w-2.5 rounded-full bg-red-300" />
                 <span className="h-2.5 w-2.5 rounded-full bg-amber-300" />
                 <span className="h-2.5 w-2.5 rounded-full bg-emerald-300" />
               </div>
-              <span className="text-xs font-medium text-gray-400">Kickoff Call — Product Sync</span>
+              <span className="text-xs font-medium text-gray-400 dark:text-gray-500">Kickoff Call — Product Sync</span>
             </div>
             <div className="grid grid-cols-1 gap-0 sm:grid-cols-[1.4fr_1fr]">
-              <div className="border-b border-gray-100 p-6 sm:border-b-0 sm:border-r">
-                <h3 className="text-base font-semibold text-gray-900">Kickoff Call — Product Sync</h3>
-                <p className="mt-1 text-xs text-gray-400">Sarah Watts, +3 · Today · 11:30 AM</p>
-                <p className="mt-4 text-sm leading-relaxed text-gray-500">
+              <div className="border-b border-gray-100 p-6 dark:border-gray-800 sm:border-b-0 sm:border-r">
+                <h3 className="text-base font-semibold text-gray-900 dark:text-gray-100">Kickoff Call — Product Sync</h3>
+                <p className="mt-1 text-xs text-gray-400 dark:text-gray-500">Sarah Watts, +3 · Today · 11:30 AM</p>
+                <p className="mt-4 text-sm leading-relaxed text-gray-500 dark:text-gray-400">
                   The kickoff call served as an introduction between teams. They aim to streamline
                   onboarding, automate follow-ups, and improve meeting workflows.
                 </p>
               </div>
               <div className="flex flex-col gap-3 p-6">
-                <p className="text-xs font-medium text-gray-400">Transcript</p>
+                <p className="text-xs font-medium text-gray-400 dark:text-gray-500">Transcript</p>
                 <div className="flex gap-2">
                   <span className="h-6 w-6 shrink-0 rounded-full bg-indigo-100 text-center text-[11px] font-semibold leading-6 text-indigo-600">
                     S
                   </span>
-                  <p className="text-xs text-gray-500">
+                  <p className="text-xs text-gray-500 dark:text-gray-400">
                     We&apos;re aiming for a seamless onboarding experience, especially around integrations.
                   </p>
                 </div>
@@ -119,7 +119,7 @@ function Hero() {
                   <span className="h-6 w-6 shrink-0 rounded-full bg-amber-100 text-center text-[11px] font-semibold leading-6 text-amber-600">
                     J
                   </span>
-                  <p className="text-xs text-gray-500">
+                  <p className="text-xs text-gray-500 dark:text-gray-400">
                     Our team will work closely with your tech lead on that.
                   </p>
                 </div>
@@ -175,37 +175,37 @@ const TRANSCRIPTION_FEATURES = [
 
 function TranscriptionSection() {
   return (
-    <section id="transcription" className="relative overflow-hidden bg-white py-28 lg:py-32">
+    <section id="transcription" className="relative overflow-hidden bg-white py-28 dark:bg-gray-950 lg:py-32">
       <SectionGlow variant="light" />
       <div className="relative mx-auto grid max-w-6xl items-center gap-16 px-6 lg:grid-cols-2">
         <div>
           <Reveal>
-            <h2 className="text-4xl font-bold tracking-tight text-gray-900 sm:text-5xl">
-              High quality meeting <span className="text-indigo-600">transcription</span>
+            <h2 className="text-4xl font-bold tracking-tight text-gray-900 dark:text-gray-100 sm:text-5xl">
+              High quality meeting <span className="text-indigo-600 dark:text-indigo-400">transcription</span>
             </h2>
           </Reveal>
           <Reveal delay={80}>
-            <p className="mt-5 max-w-md text-base leading-relaxed text-gray-500">
+            <p className="mt-5 max-w-md text-base leading-relaxed text-gray-500 dark:text-gray-400">
               Every meeting is broken into searchable, speaker-labeled segments the moment it&apos;s added.
             </p>
           </Reveal>
           <dl className="mt-12 grid grid-cols-1 gap-x-8 gap-y-9 sm:grid-cols-2">
             {TRANSCRIPTION_FEATURES.map(({ icon: Icon, title, body }, i) => (
               <Reveal key={title} delay={i * 80}>
-                <dt className="flex items-center gap-2 text-sm font-semibold text-gray-900">
-                  <Icon size={16} className="text-indigo-500" />
+                <dt className="flex items-center gap-2 text-sm font-semibold text-gray-900 dark:text-gray-100">
+                  <Icon size={16} className="text-indigo-500 dark:text-indigo-400" />
                   {title}
                 </dt>
-                <dd className="mt-1.5 text-sm leading-relaxed text-gray-500">{body}</dd>
+                <dd className="mt-1.5 text-sm leading-relaxed text-gray-500 dark:text-gray-400">{body}</dd>
               </Reveal>
             ))}
           </dl>
         </div>
 
         <Reveal delay={150}>
-          <div className="rounded-2xl border border-gray-100 bg-gray-50 p-2 shadow-[0_1px_2px_rgba(15,10,40,0.04),0_24px_48px_-28px_rgba(15,10,40,0.25)] transition-transform duration-300 hover:-translate-y-1">
-            <div className="rounded-xl bg-white p-6 shadow-sm">
-              <p className="mb-4 text-xs font-medium text-gray-400">Transcript</p>
+          <div className="rounded-2xl border border-gray-100 bg-gray-50 p-2 shadow-[0_1px_2px_rgba(15,10,40,0.04),0_24px_48px_-28px_rgba(15,10,40,0.25)] transition-transform duration-300 hover:-translate-y-1 dark:border-gray-800 dark:bg-gray-900">
+            <div className="rounded-xl bg-white p-6 shadow-sm dark:bg-gray-950">
+              <p className="mb-4 text-xs font-medium text-gray-400 dark:text-gray-500">Transcript</p>
               <div className="flex flex-col gap-4">
                 {[
                   { name: "Cate", color: "bg-rose-100 text-rose-600", time: "00:53", text: "There's some concern about onboarding — clients feel it's not intuitive enough." },
@@ -217,10 +217,10 @@ function TranscriptionSection() {
                       {row.name[0]}
                     </span>
                     <div>
-                      <p className="text-xs font-medium text-gray-700">
-                        {row.name} <span className="ml-1 font-normal text-gray-400">{row.time}</span>
+                      <p className="text-xs font-medium text-gray-700 dark:text-gray-300">
+                        {row.name} <span className="ml-1 font-normal text-gray-400 dark:text-gray-500">{row.time}</span>
                       </p>
-                      <p className="mt-0.5 text-sm leading-relaxed text-gray-500">{row.text}</p>
+                      <p className="mt-0.5 text-sm leading-relaxed text-gray-500 dark:text-gray-400">{row.text}</p>
                     </div>
                   </div>
                 ))}
@@ -281,20 +281,20 @@ function SummariesSection() {
         </Reveal>
 
         <Reveal delay={260}>
-          <div className="mt-6 rounded-2xl border border-white/10 bg-white p-7 text-gray-900 shadow-[0_30px_70px_-25px_rgba(99,60,222,0.55)] transition-transform duration-300 hover:-translate-y-1">
-            <h3 className="text-sm font-semibold text-gray-900">Action Items</h3>
+          <div className="mt-6 rounded-2xl border border-white/10 bg-white p-7 text-gray-900 shadow-[0_30px_70px_-25px_rgba(99,60,222,0.55)] transition-transform duration-300 hover:-translate-y-1 dark:bg-gray-900 dark:text-gray-100">
+            <h3 className="text-sm font-semibold text-gray-900 dark:text-gray-100">Action Items</h3>
             <div className="mt-5 grid gap-7 sm:grid-cols-2">
               <div>
-                <p className="text-xs font-medium text-gray-400">Chris</p>
-                <ul className="mt-2 space-y-2.5 text-sm leading-relaxed text-gray-600">
-                  <li>Prepare technical requirements for integrations. <span className="text-indigo-500">01:47</span></li>
-                  <li>Share final rollout list by Thursday. <span className="text-indigo-500">24:42</span></li>
+                <p className="text-xs font-medium text-gray-400 dark:text-gray-500">Chris</p>
+                <ul className="mt-2 space-y-2.5 text-sm leading-relaxed text-gray-600 dark:text-gray-400">
+                  <li>Prepare technical requirements for integrations. <span className="text-indigo-500 dark:text-indigo-400">01:47</span></li>
+                  <li>Share final rollout list by Thursday. <span className="text-indigo-500 dark:text-indigo-400">24:42</span></li>
                 </ul>
               </div>
               <div>
-                <p className="text-xs font-medium text-gray-400">Sarah</p>
-                <ul className="mt-2 space-y-2.5 text-sm leading-relaxed text-gray-600">
-                  <li>Schedule training sessions with weekly feedback calls. <span className="text-indigo-500">02:19</span></li>
+                <p className="text-xs font-medium text-gray-400 dark:text-gray-500">Sarah</p>
+                <ul className="mt-2 space-y-2.5 text-sm leading-relaxed text-gray-600 dark:text-gray-400">
+                  <li>Schedule training sessions with weekly feedback calls. <span className="text-indigo-500 dark:text-indigo-400">02:19</span></li>
                 </ul>
               </div>
             </div>
@@ -313,16 +313,16 @@ const CAPTURE_METHODS = [
 
 function CaptureSection() {
   return (
-    <section id="capture" className="relative overflow-hidden bg-gray-50 py-28 lg:py-32">
+    <section id="capture" className="relative overflow-hidden bg-gray-50 py-28 dark:bg-gray-950 lg:py-32">
       <SectionGlow variant="light" />
       <div className="relative mx-auto max-w-6xl px-6 text-center">
         <Reveal>
-          <h2 className="text-4xl font-bold tracking-tight text-gray-900 sm:text-5xl">
-            Capture meetings <span className="text-indigo-600">anywhere</span>
+          <h2 className="text-4xl font-bold tracking-tight text-gray-900 dark:text-gray-100 sm:text-5xl">
+            Capture meetings <span className="text-indigo-600 dark:text-indigo-400">anywhere</span>
           </h2>
         </Reveal>
         <Reveal delay={80}>
-          <p className="mx-auto mt-5 max-w-xl text-base leading-relaxed text-gray-500">
+          <p className="mx-auto mt-5 max-w-xl text-base leading-relaxed text-gray-500 dark:text-gray-400">
             Bring a transcript in however it&apos;s easiest, and everything else — summary, topics, action
             items — is generated for you.
           </p>
@@ -331,12 +331,12 @@ function CaptureSection() {
         <div className="mt-16 grid gap-6 sm:grid-cols-3">
           {CAPTURE_METHODS.map(({ icon: Icon, title, body }, i) => (
             <Reveal key={title} delay={i * 100}>
-              <div className="h-full rounded-2xl border border-gray-100 bg-white p-6 text-left shadow-[0_1px_2px_rgba(15,10,40,0.04),0_20px_40px_-28px_rgba(15,10,40,0.25)] transition-all duration-300 hover:-translate-y-1 hover:shadow-[0_1px_2px_rgba(15,10,40,0.06),0_28px_48px_-24px_rgba(15,10,40,0.3)]">
-                <div className="flex h-10 w-10 items-center justify-center rounded-lg bg-indigo-50 text-indigo-600">
+              <div className="h-full rounded-2xl border border-gray-100 bg-white p-6 text-left shadow-[0_1px_2px_rgba(15,10,40,0.04),0_20px_40px_-28px_rgba(15,10,40,0.25)] transition-all duration-300 hover:-translate-y-1 hover:shadow-[0_1px_2px_rgba(15,10,40,0.06),0_28px_48px_-24px_rgba(15,10,40,0.3)] dark:border-gray-800 dark:bg-gray-900">
+                <div className="flex h-10 w-10 items-center justify-center rounded-lg bg-indigo-50 text-indigo-600 dark:bg-indigo-500/10 dark:text-indigo-400">
                   <Icon size={18} />
                 </div>
-                <h3 className="mt-4 text-sm font-semibold text-gray-900">{title}</h3>
-                <p className="mt-1.5 text-sm leading-relaxed text-gray-500">{body}</p>
+                <h3 className="mt-4 text-sm font-semibold text-gray-900 dark:text-gray-100">{title}</h3>
+                <p className="mt-1.5 text-sm leading-relaxed text-gray-500 dark:text-gray-400">{body}</p>
               </div>
             </Reveal>
           ))}
@@ -348,39 +348,39 @@ function CaptureSection() {
 
 function SearchSection() {
   return (
-    <section id="search" className="relative overflow-hidden bg-white py-28 lg:py-32">
+    <section id="search" className="relative overflow-hidden bg-white py-28 dark:bg-gray-950 lg:py-32">
       <SectionGlow variant="light" />
       <div className="relative mx-auto max-w-6xl px-6 text-center">
         <Reveal>
-          <h2 className="text-4xl font-bold tracking-tight text-gray-900 sm:text-5xl">
-            Remember every conversation with <span className="text-indigo-600">search</span>
+          <h2 className="text-4xl font-bold tracking-tight text-gray-900 dark:text-gray-100 sm:text-5xl">
+            Remember every conversation with <span className="text-indigo-600 dark:text-indigo-400">search</span>
           </h2>
         </Reveal>
         <Reveal delay={80}>
-          <p className="mx-auto mt-5 max-w-xl text-base leading-relaxed text-gray-500">
+          <p className="mx-auto mt-5 max-w-xl text-base leading-relaxed text-gray-500 dark:text-gray-400">
             Jump straight to the moment that matters — search finds it and scrolls the transcript into view.
           </p>
         </Reveal>
 
         <Reveal delay={160}>
-          <div className="mx-auto mt-16 max-w-md rounded-2xl border border-gray-100 bg-gray-50 p-6 text-left shadow-[0_1px_2px_rgba(15,10,40,0.04),0_24px_48px_-28px_rgba(15,10,40,0.25)] transition-transform duration-300 hover:-translate-y-1">
-            <div className="flex items-center gap-2 rounded-lg border border-gray-200 bg-white px-3 py-2">
-              <Search size={15} className="text-gray-400" />
-              <span className="text-sm text-gray-400">integrations</span>
+          <div className="mx-auto mt-16 max-w-md rounded-2xl border border-gray-100 bg-gray-50 p-6 text-left shadow-[0_1px_2px_rgba(15,10,40,0.04),0_24px_48px_-28px_rgba(15,10,40,0.25)] transition-transform duration-300 hover:-translate-y-1 dark:border-gray-800 dark:bg-gray-900">
+            <div className="flex items-center gap-2 rounded-lg border border-gray-200 bg-white px-3 py-2 dark:border-gray-700 dark:bg-gray-950">
+              <Search size={15} className="text-gray-400 dark:text-gray-500" />
+              <span className="text-sm text-gray-400 dark:text-gray-500">integrations</span>
             </div>
             <div className="mt-4 space-y-3">
-              <div className="rounded-lg border-l-2 border-amber-400 bg-amber-50/60 px-3 py-2">
-                <p className="text-xs font-medium text-gray-500">Sarah · 00:53</p>
-                <p className="text-sm leading-relaxed text-gray-700">
+              <div className="rounded-lg border-l-2 border-amber-400 bg-amber-50/60 px-3 py-2 dark:bg-amber-500/10">
+                <p className="text-xs font-medium text-gray-500 dark:text-gray-400">Sarah · 00:53</p>
+                <p className="text-sm leading-relaxed text-gray-700 dark:text-gray-300">
                   We&apos;re aiming for a seamless onboarding experience, especially around{" "}
-                  <mark className="rounded bg-amber-200 px-0.5">integrations</mark>.
+                  <mark className="rounded bg-amber-200 px-0.5 dark:bg-amber-500/40">integrations</mark>.
                 </p>
               </div>
               <div className="rounded-lg px-3 py-2">
-                <p className="text-xs font-medium text-gray-400">Chris · 01:47</p>
-                <p className="text-sm leading-relaxed text-gray-500">
+                <p className="text-xs font-medium text-gray-400 dark:text-gray-500">Chris · 01:47</p>
+                <p className="text-sm leading-relaxed text-gray-500 dark:text-gray-400">
                   I&apos;ll prepare the technical requirements for setting up{" "}
-                  <mark className="rounded bg-amber-100 px-0.5">integrations</mark>.
+                  <mark className="rounded bg-amber-100 px-0.5 dark:bg-amber-500/25">integrations</mark>.
                 </p>
               </div>
             </div>

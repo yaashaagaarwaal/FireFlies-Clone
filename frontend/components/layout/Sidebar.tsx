@@ -19,8 +19,8 @@ interface NavItemProps {
 function NavItem({ icon: Icon, label, href, active, onClick }: NavItemProps) {
   const className = `control-focus flex items-center gap-3 rounded-lg px-3 py-2 text-sm transition-colors ${
     active
-      ? "bg-indigo-50 font-semibold text-indigo-700"
-      : "font-medium text-gray-600 hover:bg-gray-50 hover:text-gray-900"
+      ? "bg-indigo-50 font-semibold text-indigo-700 dark:bg-indigo-500/10 dark:text-indigo-400"
+      : "font-medium text-gray-600 hover:bg-gray-50 hover:text-gray-900 dark:text-gray-400 dark:hover:bg-gray-800 dark:hover:text-gray-100"
   }`;
 
   if (href) {
@@ -53,7 +53,7 @@ export function Sidebar() {
         type="button"
         onClick={() => setMobileOpen(true)}
         aria-label="Open menu"
-        className="control-focus fixed left-3 top-3 z-30 rounded-lg border border-gray-200 bg-white p-2 text-gray-600 shadow-sm transition-colors hover:bg-gray-50 md:hidden"
+        className="control-focus fixed left-3 top-3 z-30 rounded-lg border border-gray-200 bg-white p-2 text-gray-600 shadow-sm transition-colors hover:bg-gray-50 dark:border-gray-800 dark:bg-gray-900 dark:text-gray-400 dark:hover:bg-gray-800 md:hidden"
       >
         <Menu size={18} />
       </button>
@@ -68,7 +68,7 @@ export function Sidebar() {
       )}
 
       <aside
-        className={`fixed inset-y-0 left-0 z-40 flex h-screen w-60 shrink-0 flex-col border-r border-gray-200 bg-white transition-transform duration-200 md:static md:translate-x-0 ${
+        className={`fixed inset-y-0 left-0 z-40 flex h-screen w-60 shrink-0 flex-col border-r border-gray-200 bg-white transition-transform duration-200 dark:border-gray-800 dark:bg-gray-900 md:static md:translate-x-0 ${
           mobileOpen ? "translate-x-0" : "-translate-x-full"
         }`}
       >
@@ -76,19 +76,19 @@ export function Sidebar() {
           <button
             type="button"
             onClick={() => showToast("Account switching is coming soon", "info")}
-            className="control-focus flex flex-1 items-center gap-2 rounded-lg text-left transition-colors hover:bg-gray-50"
+            className="control-focus flex flex-1 items-center gap-2 rounded-lg text-left transition-colors hover:bg-gray-50 dark:hover:bg-gray-800"
           >
             <div className="flex h-8 w-8 shrink-0 items-center justify-center rounded-full bg-[#8B7355] text-sm font-semibold text-white">
               Y
             </div>
-            <span className="text-sm font-medium text-gray-900">Yash</span>
-            <ChevronDown size={15} className="ml-auto shrink-0 text-gray-400" />
+            <span className="text-sm font-medium text-gray-900 dark:text-gray-100">Yash</span>
+            <ChevronDown size={15} className="ml-auto shrink-0 text-gray-400 dark:text-gray-500" />
           </button>
           <button
             type="button"
             onClick={closeMobile}
             aria-label="Close menu"
-            className="control-focus shrink-0 rounded-md p-1 text-gray-400 transition-colors hover:bg-gray-100 md:hidden"
+            className="control-focus shrink-0 rounded-md p-1 text-gray-400 transition-colors hover:bg-gray-100 dark:text-gray-500 dark:hover:bg-gray-800 md:hidden"
           >
             <X size={16} />
           </button>
@@ -121,15 +121,15 @@ export function Sidebar() {
           />
         </nav>
 
-        <div className="flex flex-col gap-1 border-t border-gray-100 px-3 py-3">
+        <div className="flex flex-col gap-1 border-t border-gray-100 px-3 py-3 dark:border-gray-800">
           <button
             type="button"
             onClick={() => showToast("Upgrade plans are coming soon", "info")}
-            className="control-focus flex items-center gap-2 rounded-lg px-3 py-2 text-sm font-medium text-gray-600 transition-colors hover:bg-gray-50"
+            className="control-focus flex items-center gap-2 rounded-lg px-3 py-2 text-sm font-medium text-gray-600 transition-colors hover:bg-gray-50 dark:text-gray-400 dark:hover:bg-gray-800"
           >
             <Zap size={16} className="text-emerald-500" />
             Upgrade
-            <span className="ml-auto rounded-full bg-emerald-50 px-2 py-0.5 text-[11px] font-semibold text-emerald-700">
+            <span className="ml-auto rounded-full bg-emerald-50 px-2 py-0.5 text-[11px] font-semibold text-emerald-700 dark:bg-emerald-500/10 dark:text-emerald-400">
               40% OFF
             </span>
           </button>

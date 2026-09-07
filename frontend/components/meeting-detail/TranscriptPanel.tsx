@@ -46,17 +46,17 @@ export function TranscriptPanel({ segments, currentTime, onSeek }: TranscriptPan
   }
 
   return (
-    <aside className="flex h-full w-full shrink-0 flex-col bg-white md:w-[380px] md:border-l md:border-gray-200">
-      <div className="border-b border-gray-100 p-4">
+    <aside className="flex h-full w-full shrink-0 flex-col bg-white dark:bg-gray-900 md:w-[380px] md:border-l md:border-gray-200 dark:md:border-gray-800">
+      <div className="border-b border-gray-100 p-4 dark:border-gray-800">
         <div className="mb-3 flex items-center justify-between">
-          <h2 className="flex items-center gap-2.5 text-sm font-semibold text-gray-900">
-            <span className="flex h-7 w-7 shrink-0 items-center justify-center rounded-lg bg-indigo-50 text-indigo-600">
+          <h2 className="flex items-center gap-2.5 text-sm font-semibold text-gray-900 dark:text-gray-100">
+            <span className="flex h-7 w-7 shrink-0 items-center justify-center rounded-lg bg-indigo-50 text-indigo-600 dark:bg-indigo-500/10 dark:text-indigo-400">
               <MessageSquareText size={15} />
             </span>
             Transcript
           </h2>
           {segments.length > 0 && (
-            <span className="text-xs text-gray-400">
+            <span className="text-xs text-gray-400 dark:text-gray-500">
               {segments.length} {segments.length === 1 ? "line" : "lines"}
             </span>
           )}

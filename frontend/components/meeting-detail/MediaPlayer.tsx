@@ -35,7 +35,7 @@ export function MediaPlayer({
   onVolumeChange,
 }: MediaPlayerProps) {
   return (
-    <section className="flex items-center gap-4 rounded-xl border border-gray-200 bg-white px-4 py-3.5 shadow-sm">
+    <section className="flex items-center gap-4 rounded-xl border border-gray-200 bg-white px-4 py-3.5 shadow-sm dark:border-gray-800 dark:bg-gray-900">
       <audio ref={audioRef} src={src} loop preload="metadata" />
 
       <button
@@ -47,7 +47,7 @@ export function MediaPlayer({
         {isPlaying ? <Pause size={17} /> : <Play size={17} className="ml-0.5" />}
       </button>
 
-      <span className="w-11 shrink-0 font-mono text-xs text-gray-500">{formatClockTime(currentTime)}</span>
+      <span className="w-11 shrink-0 font-mono text-xs text-gray-500 dark:text-gray-400">{formatClockTime(currentTime)}</span>
 
       <input
         type="range"
@@ -60,7 +60,7 @@ export function MediaPlayer({
         className="control-focus h-1.5 flex-1 cursor-pointer rounded-full accent-indigo-600"
       />
 
-      <span className="w-11 shrink-0 font-mono text-xs text-gray-500">{formatClockTime(durationSeconds)}</span>
+      <span className="w-11 shrink-0 font-mono text-xs text-gray-500 dark:text-gray-400">{formatClockTime(durationSeconds)}</span>
 
       <div className="hidden shrink-0 items-center gap-1.5 sm:flex">
         <VolumeIcon volume={volume} />

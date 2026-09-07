@@ -121,14 +121,14 @@ export function ActionItems({ meetingId, actionItems, participants, onChanged }:
       title="Action items"
       action={
         actionItems.length > 0 && (
-          <span className="rounded-full bg-gray-100 px-2 py-0.5 text-xs font-medium text-gray-500">
+          <span className="rounded-full bg-gray-100 px-2 py-0.5 text-xs font-medium text-gray-500 dark:bg-gray-800 dark:text-gray-400">
             {completedCount} of {actionItems.length} done
           </span>
         )
       }
     >
       <div className="flex flex-col gap-0.5">
-        {actionItems.length === 0 && <p className="py-2 text-sm text-gray-400">No action items yet.</p>}
+        {actionItems.length === 0 && <p className="py-2 text-sm text-gray-400 dark:text-gray-500">No action items yet.</p>}
         {actionItems.map((item) => (
           <ActionItemRow
             key={item.id}
@@ -146,12 +146,12 @@ export function ActionItems({ meetingId, actionItems, participants, onChanged }:
         ))}
       </div>
 
-      <form onSubmit={handleAdd} className="mt-3 flex flex-col gap-2 border-t border-gray-100 pt-3.5 sm:flex-row">
+      <form onSubmit={handleAdd} className="mt-3 flex flex-col gap-2 border-t border-gray-100 pt-3.5 dark:border-gray-800 sm:flex-row">
         <input
           value={newText}
           onChange={(event) => setNewText(event.target.value)}
           placeholder="Add a task…"
-          className="field-focus flex-1 rounded-lg border border-gray-200 px-3 py-2 text-sm text-gray-900 placeholder:text-gray-400"
+          className="field-focus flex-1 rounded-lg border border-gray-200 px-3 py-2 text-sm text-gray-900 placeholder:text-gray-400 dark:border-gray-700 dark:bg-gray-900 dark:text-gray-100 dark:placeholder:text-gray-500"
         />
         <Select
           value={newAssigneeId}
