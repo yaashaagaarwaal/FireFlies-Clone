@@ -1,6 +1,6 @@
 # Fireflies Clone — Meeting Notes & Transcription Platform
 
-A Fireflies.ai-inspired meeting notes and transcription platform, built as an SDE Fullstack Assignment. Users can browse a dashboard of past meetings, create a new meeting from a pasted or uploaded transcript, and get an auto-generated summary, topic chapters, and a fully interactive, searchable transcript synced to playback — plus full CRUD on meetings and action items.
+A Fireflies.ai-inspired meeting notes and transcription platform, built as an SDE Fullstack Assignment. Users can browse a dashboard of past meetings, create a new meeting from a pasted or uploaded transcript, and get an auto-generated summary, topic chapters, and a fully interactive and searchable transcript synced to playback — plus full CRUD on meetings and action items.
 
 Live demo: [frontend](https://fireflyfrontend.vercel.app) · [backend API](https://fireflies-backend-fr1m.onrender.com/api/health)
 
