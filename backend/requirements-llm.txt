@@ -1,0 +1,4 @@
+# Optional. Only needed if you set ANTHROPIC_API_KEY in .env to enable
+# real LLM-generated meeting summaries — see app/services/ai_summary.py.
+# Install with: pip install -r requirements-llm.txt
+anthropic>=0.40,<1.0
