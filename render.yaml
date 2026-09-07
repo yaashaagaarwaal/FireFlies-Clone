@@ -1,21 +1,16 @@
 # Render Blueprint for the backend. Import this repo at https://dashboard.render.com/blueprints
-# and Render creates the service below automatically.
+# and Render creates the service + disk below automatically.
 #
-# FREE-TIER TRADEOFF (chosen deliberately — see README's Deployment section):
-# this runs on Render's free plan with NO persistent disk. Render's free web
-# services have an ephemeral filesystem, so the SQLite database is wiped on
-# every restart, redeploy, and ~15-minute idle spin-down — scripts/start.sh
-# reseeds 5 fresh demo meetings each time a container boots, so the app is
-# never stuck with an empty dashboard, but nothing a user creates/edits
-# persists across those resets. Free services also cold-start slowly
-# (~30-50s) after spinning down from inactivity. If you need real
-# persistence later, switch `plan` to `starter` and add a `disk:` block
-# mounted at e.g. /var/data, with DATABASE_URL pointing inside it.
+# NOTE: SQLite needs a persistent disk, which Render only supports on paid
+# instance plans (their free web-service tier has an ephemeral filesystem —
+# the database would be wiped on every restart/redeploy). "starter" is their
+# cheapest plan that supports attaching a disk; check render.com/pricing for
+# current cost before deploying.
 services:
   - type: web
     name: fireflies-backend
     runtime: python
-    plan: free
+    plan: starter
     rootDir: backend
     buildCommand: pip install -r requirements.txt
     startCommand: bash scripts/start.sh
@@ -24,7 +19,7 @@ services:
       - key: PYTHON_VERSION
         value: 3.12.7
       - key: DATABASE_URL
-        value: sqlite:///./fireflies.db
+        value: sqlite:////var/data/fireflies.db
       - key: ENVIRONMENT
         value: production
       # Set manually in the Render dashboard after the frontend is deployed
@@ -35,3 +30,7 @@ services:
       # Leave unset to use the built-in heuristic generator.
       - key: ANTHROPIC_API_KEY
         sync: false
+    disk:
+      name: fireflies-data
+      mountPath: /var/data
+      sizeGB: 1

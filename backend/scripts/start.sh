@@ -1,18 +1,9 @@
 #!/usr/bin/env bash
-# Production entrypoint. Seeds the database only if it doesn't already exist
-# at DATABASE_URL's path, so a single run is idempotent — seed.py itself has
-# no such guard (it always inserts), so the check has to live here.
-#
-# On a persistent disk this means "seed once, ever": the file survives
-# restarts, so later boots skip straight to serving and real data is never
-# duplicated or overwritten.
-#
-# On Render's free plan (this project's current config — see render.yaml)
-# there is NO persistent disk: every restart/redeploy/idle spin-down starts
-# from a blank filesystem, so this check evaluates true every time and the
-# database is reseeded fresh on every boot. That's intentional here — it
-# keeps the demo populated instead of showing an empty dashboard — but it
-# also means nothing a user creates or edits survives a restart.
+# Production entrypoint. Seeds the database only on first boot — once
+# fireflies.db exists on the mounted persistent disk, later restarts and
+# redeploys skip straight to serving, so real data is never duplicated or
+# overwritten. seed.py itself has no such guard (it always inserts), so this
+# check has to live here rather than there.
 set -euo pipefail
 
 cd "$(dirname "$0")/.."
