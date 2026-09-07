@@ -5,19 +5,22 @@
 # instance plans (their free web-service tier has an ephemeral filesystem —
 # the database would be wiped on every restart/redeploy). "starter" is their
 # cheapest plan that supports attaching a disk; check render.com/pricing for
-# current cost before deploying.
+# current cost before deploying. Render also requires card verification to
+# create a Blueprint at all, regardless of plan — confirmed directly, not
+# assumed.
+#
+# Uses the same Dockerfile as everywhere else (backend/Dockerfile) instead of
+# Render's auto-detected Python builder, so there's no ambiguity about Python
+# version or how the app starts.
 services:
   - type: web
     name: fireflies-backend
-    runtime: python
+    runtime: docker
     plan: starter
     rootDir: backend
-    buildCommand: pip install -r requirements.txt
-    startCommand: bash scripts/start.sh
+    dockerfilePath: ./Dockerfile
     healthCheckPath: /api/health
     envVars:
-      - key: PYTHON_VERSION
-        value: 3.12.7
       - key: DATABASE_URL
         value: sqlite:////var/data/fireflies.db
       - key: ENVIRONMENT
