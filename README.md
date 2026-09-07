@@ -12,6 +12,7 @@ Transcript generation itself is out of scope (see [Assumptions](#assumptions)) �
 
 ## Features
 
+- **🌙 Dark mode (bonus)** — a sun/moon toggle in the top bar (and the landing page nav) switches the whole app between light and dark themes instantly, with no flash on load and the choice remembered across visits. Not required by the assignment — added as a polish pass on top of the core features.
 - **Meetings dashboard** — search by title, filter by participant or date, sort by recency or title, participant avatars, loading/empty/error states
 - **Create meeting** from a pasted or uploaded transcript (`.txt`, `.vtt`, `.json`, auto-detected format) — parses speaker turns, links or creates `Participant` rows, and generates a summary + topics in one atomic transaction
 - **AI-generated summary** — a zero-config heuristic overview by default; an optional real Claude-backed generator activates automatically when `ANTHROPIC_API_KEY` is set, with automatic fallback to the heuristic on any failure
@@ -239,6 +240,7 @@ App: http://localhost:3000
 
 ## Design Decisions
 
+- **Dark mode (bonus) is class-based, not just `prefers-color-scheme`.** Tailwind v4's `dark:` variant is repointed at a `.dark` class on `<html>` (`@custom-variant dark` in `globals.css`) instead of the OS media query, so the toggle can override the system setting rather than just following it. A small inline script in the root layout applies the saved/OS-inferred theme *before* React hydrates, so there's no flash of the wrong theme on load; `ThemeToggle` (`frontend/components/ui/ThemeToggle.tsx`) reads/writes that class via `useSyncExternalStore` — deliberately not `useState` + `useEffect`, since a manually-mutated DOM class isn't state React owns, and `useSyncExternalStore`'s `getServerSnapshot` avoids a hydration-mismatch warning that a plain effect-based approach would otherwise trigger. The choice persists in `localStorage` and is scoped to the actual application UI — the marketing landing page's already-dark sections were left as brand design, only its light-toned sections and its own nav toggle adapt.
 - **Layered backend (routers → services → repositories).** Keeps HTTP concerns, business rules, and data access independently testable and swappable — e.g. the ORM could be replaced without touching services or routers.
 - **Summary generation behind an interface (`SummaryGenerator`).** `HeuristicSummaryGenerator` needs no API key or network access, so meeting creation always works out of the box; `LLMSummaryGenerator` (Claude) sits behind the exact same interface and is wrapped so any failure (bad key, network, malformed response) transparently falls back to the heuristic instead of breaking meeting creation.
 - **`Participant` is separate from `User`.** A participant is anyone attendable/speakable in a meeting (including the app's own user, who also has a participant row so they can appear in transcripts) — mirroring how a real product separates "account" from "contact/attendee."
